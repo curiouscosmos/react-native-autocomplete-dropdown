@@ -76,7 +76,7 @@ export const AutocompleteDropdown = memo(
 
     useEffect(() => {
       if (selectedItem) {
-        setSearchText(selectedItem.title ?? '')
+        setSearchText(selectedItem.label ?? '')
       } else {
         setSearchText('')
       }
