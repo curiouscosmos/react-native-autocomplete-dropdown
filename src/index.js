@@ -76,7 +76,7 @@ export const AutocompleteDropdown = memo(
 
     useEffect(() => {
       if (selectedItem) {
-        setSearchText(selectedItem.label ?? '')
+        setSearchText(selectedItem.title ?? '')
       } else {
         setSearchText('')
       }
@@ -274,7 +274,7 @@ export const AutocompleteDropdown = memo(
           style={[styles.inputContainerStyle, props.inputContainerStyle]}>
           <InputComponent
             ref={inputRef}
-            value={searchText}
+            value={props.emptyValue ? '': searchText}
             onChangeText={onChangeText}
             autoCorrect={false}
             onBlur={onBlur}
@@ -353,7 +353,8 @@ AutocompleteDropdown.propTypes = {
   ScrollViewComponent: PropTypes.elementType,
   EmptyResultComponent: PropTypes.element,
   emptyResultText: PropTypes.string,
-  flatListProps: PropTypes.object
+  flatListProps: PropTypes.object,
+  emptyValue: PropTypes.bool
 }
 
 const styles = ScaledSheet.create({
